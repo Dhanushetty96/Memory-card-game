@@ -1,0 +1,131 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: "Poppins";
+}body{
+    background-color: rgb(117, 86, 152);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.container{
+    background-color: aliceblue;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 14px 14px 0 0 #543e3e;
+ 
+
+    margin-top: 10px;
+}
+.startgame
+{
+    display: grid;
+    gap:25px;
+    grid-template-columns: repeat(3,100px);
+    grid-template-rows: repeat(1,100px);
+}
+.startgame .card{
+    font-size: 1.2rem;
+    user-select: none;
+}
+.card{
+    text-align: center;
+    cursor: pointer;
+    font-size: 2rem;
+    margin: 10px;
+}
+.card div{
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    color: rgb(117, 86, 152);
+    background-color: aliceblue;
+    border-radius: 10px;
+    transition: all 500ms ease-out;
+    backface-visibility: hidden;
+    border: 1px solid  rgb(117, 86, 152) ;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    align-items: center;
+    
+    
+}
+button{
+  
+    background-color: rgb(117, 86, 152);
+    color: aliceblue;
+    cursor: pointer;
+    height: 40px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    left:50%;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    display: block;
+   
+margin-left: 10px;
+}
+.startgame .card.active div {
+    box-shadow: 0 5px 15px  rgb(117, 86, 152) ;
+}
+.card .back{
+    transform: rotateY(-180deg);
+}
+.startgame .card:hover .back,.card.flip  .back{
+ transform: rotateY(0deg);
+}
+.startgame .card:hover .front,.card.flip  .front {
+    transform: rotateY(-180deg);
+}
+.fa-solid {
+    font-size: 25px;
+    margin-top: 100px;
+    cursor: pointer;
+}
+.playground{
+    display: grid;
+    gap: 20px;
+    display: none;
+
+}
+.card.shake{
+animation: shake 0.35s ease-in-out ;
+}
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    50% { transform: translateX(10px); }
+    75% { transform: translateX(-10px); }
+    100% { transform: translateX(0); }
+}
+.card.match{
+    animation: rubberBand 1s linear forwards;
+}
+@keyframes rubberBand {
+    0%
+    {
+        transform: scaleX(1);
+    }
+    40%{
+        transform: scaleX(1.12) scaleY(0.75);
+    }
+    55%{
+        transform: scaleX(0.85) scaleY(1);
+    }
+    65%{
+        transform: scaleX(1.09) scaleY(0.85);
+    }
+    75%{
+        transform: scaleX(0.9) scaleY(1);
+    } 
+    90%{
+        transform: scaleX(1.05) scaleY(0.95);
+    }
+    100%{
+        transform: scaleX(1) scaleY(1);
+    }
+}
